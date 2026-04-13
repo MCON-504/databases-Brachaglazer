@@ -135,7 +135,7 @@ def list_enrollments(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     """
     cursor = conn.execute(
         """
-        SELECT s.name AS student, c.code AS course, c.title AS title
+        SELECT s.name AS student_name, c.code AS course_code, c.title AS course_title
         FROM enrollments e
         JOIN students s ON e.student_id = s.id
         JOIN courses c ON e.course_id = c.id
