@@ -135,7 +135,7 @@ def student_grade_report(conn: sqlite3.Connection, student_id: int) -> list[sqli
         """
         SELECT a.title AS assignment, g.score, a.max_points AS max_points, ROUND(1.0 * g.score / a.max_points * 100, 1)
         FROM grades g
-                 JOIN assignments a ON g.assignement_id = a.id
+                 JOIN assignments a ON g.assignment_id = a.id
         WHERE g.student_id = ?;
         """, (student_id,)
     ).fetchone()
